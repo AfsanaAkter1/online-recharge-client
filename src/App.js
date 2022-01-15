@@ -6,6 +6,9 @@ import Support from "./Components/Support/Support";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import AuthProvider from "./Components/Contexts/AuthProvider";
+import OfferModal from "./Components/Home/OfferModal/OfferModal";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Offer from "./Components/Home/Offer/Offer";
 
 function App() {
   return (
