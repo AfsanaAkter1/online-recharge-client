@@ -31,17 +31,15 @@ const Navbar = () => {
                 Re-Charge.bd
               </Link>
             </Typography>
-            <Link to="/support" style={{ textDecoration: "none" }}>
-              <Button style={{ color: "black" }}>24/7 Support</Button>
-            </Link>
+
             {!user?.email ? (
               <Link to="/login" style={{ textDecoration: "none" }}>
                 <Button color="primary">Login</Button>
               </Link>
             ) : (
-              <Button color="primary" onClick={logout}>
-                Logout
-              </Button>
+              <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                <Button style={{ color: "black" }}>Dashboard</Button>
+              </Link>
             )}
           </Toolbar>
         </Container>

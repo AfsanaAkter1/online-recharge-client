@@ -1,4 +1,4 @@
-import { Phone } from "@mui/icons-material";
+import ReactTypingEffect from "react-typing-effect";
 import {
   Box,
   Button,
@@ -49,11 +49,12 @@ const HomeRecharge = () => {
     e.target.reset();
   };
   return (
-    <Container>
+    <Container id="recharge-section">
       <Box sx={{ my: 8 }}>
-        <Typography sx={{ textAlign: "center" }} color="error" variant="h5">
-          Recharge Any Time Any Where
+        <Typography variant="h4" color="error" sx={{ fontWeight: 400 }}>
+          <ReactTypingEffect text={["Recharge Any Time Any Where"]} />
         </Typography>
+
         <Grid container spacing={2}>
           <Grid item xm={12} sm={12} md={6}>
             <img style={{ width: "75%" }} src={HomepageRecharge} alt="" />
@@ -98,6 +99,7 @@ const HomeRecharge = () => {
                   disabled={!rechargeData.phone && !rechargeData.price}
                   sx={{ width: "75%", mb: 3 }}
                   variant="contained"
+                  color="error"
                   type="submit"
                 >
                   Recharge

@@ -16,7 +16,7 @@ const Offers = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/offers?type=${type}&&page=${page}&&size=${size}`
+      `https://rocky-atoll-33019.herokuapp.com/offers?type=${type}&&page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -37,12 +37,16 @@ const Offers = () => {
   };
 
   return (
-    <Container>
+    <Container id="offers-section">
       <Box>
         <Box>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={6} sx={{ mt: 1, textAlign: "left" }}>
-              <Typography sx={{ textAlign: "left" }} variant="h4" color="error">
+              <Typography
+                sx={{ textAlign: "left", fontWeight: 500 }}
+                variant="h4"
+                color="error"
+              >
                 Recharge Offers
               </Typography>
             </Grid>

@@ -42,6 +42,7 @@ const Offer = ({ offer }) => {
               bottom: "15px",
             }}
             variant="contained"
+            color="error"
             onClick={handleOpen}
           >
             Get it

@@ -9,6 +9,9 @@ import AuthProvider from "./Components/Contexts/AuthProvider";
 import OfferModal from "./Components/Home/OfferModal/OfferModal";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Offer from "./Components/Home/Offer/Offer";
+import PayWith from "./Components/Shared/PayWith/PayWith";
+import Footer from "./Components/Shared/Footer/Footer";
+import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -22,7 +25,10 @@ function App() {
             <Route path="/support" element={<Support />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
+          <PayWith />
+          <Footer />
         </BrowserRouter>
       </AuthProvider>
     </div>
