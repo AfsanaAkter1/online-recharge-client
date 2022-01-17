@@ -17,6 +17,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import RechargeHistory from "../RechargeHistory/RechargeHistory";
+import HomeIcon from "@mui/icons-material/Home";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -36,7 +38,13 @@ function Dashboard(props) {
         {["Recharge History", "Profile"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <HistoryIcon /> : <AccountBoxIcon />}
+              {index === 0 && <HistoryIcon />}
+              {index === 1 && <AccountBoxIcon />}
+              {index === 2 && (
+                <Link to="/home">
+                  <HomeIcon />
+                </Link>
+              )}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
