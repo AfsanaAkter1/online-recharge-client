@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 
 initializeAuthentication();
@@ -21,13 +22,26 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
 
   //register user using email and password
-  const registerUser = (email, password, location, navigate) => {
+  const registerUser = (email, password, name, location, navigate) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
+        const newUser = { email, displayName: name };
+        setUser(newUser);
+        //update user profile after creation
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
         const destination = location?.state?.from || "/";
         navigate(destination);
-        setUser(result.user);
       })
       .catch((error) => {
         setError(error.message);

@@ -1,4 +1,5 @@
 import ReactTypingEffect from "react-typing-effect";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -11,8 +12,12 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import HomepageRecharge from "../../../images/recharge-homepage.jpg";
+import useAuth from "../../../hooks/UseAuth/useAuth";
 
 const HomeRecharge = () => {
+  const date = new Date().toLocaleDateString();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [rechargeData, setRechargeData] = useState({});
   const networks = [
     {
@@ -45,8 +50,31 @@ const HomeRecharge = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(rechargeData);
-    e.target.reset();
+    if (!user.email) {
+      navigate("/login");
+    } else {
+      const homeRechargeData = {
+        ...rechargeData,
+        email: user.email,
+        name: user.displayName,
+        date,
+      };
+      //send data to database
+      fetch("https://rocky-atoll-33019.herokuapp.com/recharges", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(homeRechargeData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            alert("Recharge Successful");
+            e.target.reset();
+          }
+        });
+    }
   };
   return (
     <Container id="recharge-section">

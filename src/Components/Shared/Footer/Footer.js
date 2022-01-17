@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Button } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -7,14 +7,16 @@ import "./Footer.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import useAuth from "../../../hooks/UseAuth/useAuth";
 
 const Footer = () => {
+  const { user, logout } = useAuth();
   const year = new Date().getFullYear();
   return (
     <Box
       sx={{
         mt: 10,
-        height: 100,
+        height: 80,
         backgroundColor: red[500],
       }}
     >

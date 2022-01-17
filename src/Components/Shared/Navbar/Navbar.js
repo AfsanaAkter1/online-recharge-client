@@ -31,15 +31,23 @@ const Navbar = () => {
                 Re-Charge.bd
               </Link>
             </Typography>
+            <Link to="/home" style={{ textDecoration: "none" }}>
+              <Button style={{ color: "black" }}>Home</Button>
+            </Link>
 
             {!user?.email ? (
-              <Link to="/login" style={{ textDecoration: "none" }}>
-                <Button color="primary">Login</Button>
+              <Link to="/home" style={{ textDecoration: "none" }}>
+                <Button style={{ color: "black" }}>Login</Button>
               </Link>
             ) : (
-              <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                <Button style={{ color: "black" }}>Dashboard</Button>
-              </Link>
+              <Box>
+                <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Button style={{ color: "black" }}>Dashboard</Button>
+                </Link>
+                <Button color="primary" onClick={logout}>
+                  Logout
+                </Button>
+              </Box>
             )}
           </Toolbar>
         </Container>

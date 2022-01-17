@@ -1,14 +1,24 @@
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import OfferModal from "../OfferModal/OfferModal";
+import useAuth from "../../../hooks/UseAuth/useAuth";
 
 const Offer = ({ offer }) => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const { title, img, price, validity } = offer;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleModal = () => {
+    if (!user.email) {
+      navigate("/login");
+    } else {
+      handleOpen();
+    }
+  };
   return (
     <>
       <Grid xs={12} sm={12} md={3}>
@@ -43,7 +53,7 @@ const Offer = ({ offer }) => {
             }}
             variant="contained"
             color="error"
-            onClick={handleOpen}
+            onClick={handleModal}
           >
             Get it
           </Button>

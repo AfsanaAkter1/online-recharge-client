@@ -30,7 +30,13 @@ const Register = () => {
       setError("password did not match");
       return;
     }
-    registerUser(registerData.email, registerData.password, location, navigate);
+    registerUser(
+      registerData.email,
+      registerData.password,
+      registerData.name,
+      location,
+      navigate
+    );
     console.log(registerData);
     e.target.reset();
     setError("");
@@ -40,6 +46,15 @@ const Register = () => {
       <Grid item sx={{ mt: 10 }} xs={12} md={6}>
         <Typography variant="body1">Register</Typography>
         <form onSubmit={handleSubmit}>
+          <TextField
+            sx={{ width: "75%", m: 1 }}
+            required
+            name="name"
+            label="Your name"
+            type="text"
+            variant="standard"
+            onChange={handleOnChange}
+          />
           <TextField
             sx={{ width: "75%", m: 1 }}
             required
