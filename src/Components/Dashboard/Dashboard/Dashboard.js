@@ -35,7 +35,7 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       <List>
-        {["Recharge History", "Profile"].map((text, index) => (
+        {["Recharge History", "Profile", "Home"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index === 0 && <HistoryIcon />}
