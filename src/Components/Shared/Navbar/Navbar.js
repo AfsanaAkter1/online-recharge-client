@@ -36,7 +36,7 @@ const Navbar = () => {
             </Link>
 
             {!user?.email ? (
-              <Link to="/home" style={{ textDecoration: "none" }}>
+              <Link to="/login" style={{ textDecoration: "none" }}>
                 <Button style={{ color: "black" }}>Login</Button>
               </Link>
             ) : (
