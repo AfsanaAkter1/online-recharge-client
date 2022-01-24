@@ -35,20 +35,26 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       <List>
-        {["Recharge History", "Profile", "Home"].map((text, index) => (
-          <ListItem button key={text}>
+        <ListItem button>
+          <ListItemIcon>
+            <HistoryIcon />
+          </ListItemIcon>
+          <ListItemText primary="Recharge History" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <AccountBoxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Profile" />
+        </ListItem>
+        <Link to="/home" style={{ textDecoration: "none", color: "black" }}>
+          <ListItem button>
             <ListItemIcon>
-              {index === 0 && <HistoryIcon />}
-              {index === 1 && <AccountBoxIcon />}
-              {index === 2 && (
-                <Link to="/home">
-                  <HomeIcon />
-                </Link>
-              )}
+              <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary="Home" />
           </ListItem>
-        ))}
+        </Link>
       </List>
     </div>
   );
