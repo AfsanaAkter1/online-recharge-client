@@ -79,7 +79,11 @@ const HomeRecharge = () => {
   return (
     <Container id="recharge-section">
       <Box sx={{ my: 8 }}>
-        <Typography variant="h4" color="error" sx={{ fontWeight: 400 }}>
+        <Typography
+          variant="h4"
+          color="error"
+          sx={{ fontWeight: 400, fontSize: { xs: "20px", md: "28px" } }}
+        >
           <ReactTypingEffect text={["Recharge Any Time Any Where"]} />
         </Typography>
 

@@ -71,7 +71,12 @@ const OfferModal = ({ offer, open, handleClose }) => {
       >
         <Box sx={style}>
           <Grid container spacing={2}>
-            <Grid item sx={12} md={6}>
+            <Grid
+              item
+              sx={12}
+              md={6}
+              sx={{ display: { xs: "none", md: "block" } }}
+            >
               <img
                 style={{ width: "80%", marginTop: "20px" }}
                 src={ModalImage}
@@ -79,11 +84,15 @@ const OfferModal = ({ offer, open, handleClose }) => {
               />
             </Grid>
             <Grid item sx={12} md={6}>
-              <Paper elevation={3} sx={{ pl: 15, pt: 5 }}>
+              <Paper elevation={3} sx={{ pt: 5 }}>
                 <form onSubmit={handleSubmit}>
                   <TextField
                     required
-                    sx={{ width: "75%", mb: 3 }}
+                    sx={{
+                      width: { xs: "90%", md: "75%" },
+                      mb: 3,
+                      mx: { xs: "6%", md: "12%" },
+                    }}
                     label="Type a valid Number"
                     variant="outlined"
                     name="phone"
@@ -91,7 +100,11 @@ const OfferModal = ({ offer, open, handleClose }) => {
                     onChange={handleChange}
                   />
                   <TextField
-                    sx={{ width: "75%", mb: 3 }}
+                    sx={{
+                      width: { xs: "90%", md: "75%" },
+                      mb: 3,
+                      mx: { xs: "6%", md: "12%" },
+                    }}
                     label="Operator"
                     variant="outlined"
                     name="operator"
@@ -100,7 +113,11 @@ const OfferModal = ({ offer, open, handleClose }) => {
                   />
                   <TextField
                     required
-                    sx={{ width: "75%", mb: 3 }}
+                    sx={{
+                      width: { xs: "90%", md: "75%" },
+                      mb: 3,
+                      mx: { xs: "6%", md: "12%" },
+                    }}
                     label="Amount in TK"
                     variant="outlined"
                     name="price"
@@ -109,7 +126,11 @@ const OfferModal = ({ offer, open, handleClose }) => {
                     onBlur={handleChange}
                   />
                   <TextField
-                    sx={{ width: "75%", mb: 3 }}
+                    sx={{
+                      width: { xs: "90%", md: "75%" },
+                      mb: 3,
+                      mx: { xs: "6%", md: "12%" },
+                    }}
                     label="Validation"
                     variant="outlined"
                     name="validity"
@@ -119,7 +140,11 @@ const OfferModal = ({ offer, open, handleClose }) => {
                   />
                   <Button
                     disabled={!modalData.phone && !modalData.price}
-                    sx={{ width: "75%", mb: 3 }}
+                    sx={{
+                      width: { xs: "90%", md: "75%" },
+                      mb: 3,
+                      mx: { xs: "6%", md: "12%" },
+                    }}
                     variant="contained"
                     color="error"
                     type="submit"

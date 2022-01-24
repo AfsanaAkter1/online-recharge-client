@@ -43,7 +43,10 @@ const Offers = () => {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={6} sx={{ mt: 1, textAlign: "left" }}>
               <Typography
-                sx={{ textAlign: "left", fontWeight: 500 }}
+                sx={{
+                  textAlign: { md: "left", sm: "center" },
+                  fontWeight: 500,
+                }}
                 variant="h4"
                 color="error"
               >
@@ -55,7 +58,7 @@ const Offers = () => {
               xs={12}
               sm={12}
               md={6}
-              sx={{ my: 3, textAlign: "right" }}
+              sx={{ my: 3, textAlign: { md: "right", sm: "center" } }}
             >
               <Button onClick={handleOnClick} value="internet">
                 INTERNET
@@ -72,7 +75,7 @@ const Offers = () => {
             </Grid>
           </Grid>
         </Box>
-        <Box style={{ height: "550px" }}>
+        <Box>
           <Grid container spacing={2}>
             {offers.length ? (
               offers.map((offer) => (
@@ -83,7 +86,7 @@ const Offers = () => {
             )}
           </Grid>
         </Box>
-        <Box sx={{ mx: "auto", width: 400, mb: 3 }}>
+        <Box sx={{ mx: "auto", width: "50%", my: 3 }}>
           <Stack spacing={2}>
             <Pagination count={pageCount} onChange={handleChange} />
           </Stack>

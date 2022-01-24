@@ -23,8 +23,8 @@ const PopularOffers = () => {
   }, []);
 
   return (
-    <Container>
-      <Box sx={{ height: "400px", mt: 10 }}>
+    <Container textAlign="center">
+      <Box sx={{ mx: "auto", my: 10 }}>
         <Box>
           <Typography
             sx={{ textAlign: "left", fontWeight: 500 }}
@@ -34,14 +34,14 @@ const PopularOffers = () => {
             Popular Offers
           </Typography>
         </Box>
-        <Paper variant="outlined" square sx={{ px: 5, py: 2 }}>
+        <Paper variant="outlined" square sx={{ px: 4, py: 3 }}>
           <Grid container spacing={2}>
             {offers.length ? (
               offers.map((offer) => (
                 <Offer key={offer._id} offer={offer}></Offer>
               ))
             ) : (
-              <CircularProgress sx={{ mx: "auto", mt: "50px" }} />
+              <CircularProgress sx={{ mx: "auto", my: "20px" }} />
             )}
           </Grid>
         </Paper>

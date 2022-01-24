@@ -11,10 +11,9 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <HomeRecharge></HomeRecharge>
-      <PopularOffers></PopularOffers>
-      <Offers></Offers>
-      <Details></Details>
+      <HomeRecharge />
+      <PopularOffers />
+      <Offers />
       <PayWith />
       <Footer />
     </div>

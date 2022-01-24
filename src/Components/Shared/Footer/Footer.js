@@ -16,12 +16,18 @@ const Footer = () => {
     <Box
       sx={{
         mt: 10,
-        height: 80,
+        height: "20%",
         backgroundColor: red[500],
       }}
     >
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6} lg={6} sx={{ textAlign: "left" }}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          lg={6}
+          sx={{ textAlign: { sm: "center", md: "left" } }}
+        >
           <a href="#recharge-section" className="footer-link">
             Recharge
           </a>
