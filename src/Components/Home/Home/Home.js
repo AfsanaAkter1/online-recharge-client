@@ -14,6 +14,7 @@ const Home = () => {
       <HomeRecharge />
       <PopularOffers />
       <Offers />
+      <Details />
       <PayWith />
       <Footer />
     </div>

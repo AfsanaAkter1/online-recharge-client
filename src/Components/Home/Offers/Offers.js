@@ -82,7 +82,7 @@ const Offers = () => {
                 <Offer key={offer._id} offer={offer}></Offer>
               ))
             ) : (
-              <CircularProgress sx={{ mx: "auto", mt: "200px" }} />
+              <CircularProgress sx={{ mx: "auto", mt: "10%" }} />
             )}
           </Grid>
         </Box>
