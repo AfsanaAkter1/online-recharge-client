@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import "./OfferModal.css";
 import ModalImage from "../../../images/modalImage.jpg";
-import { Grid, Paper, TextField } from "@mui/material";
+import { Grid, MenuItem, Paper, TextField } from "@mui/material";
 import useAuth from "../../../hooks/UseAuth/useAuth";
 
 const style = {
@@ -18,7 +18,7 @@ const style = {
   border: "none",
   borderRadius: "10px",
   boxShadow: 24,
-  p: 4,
+  p: 2,
 };
 
 const OfferModal = ({ offer, open, handleClose }) => {
@@ -26,6 +26,20 @@ const OfferModal = ({ offer, open, handleClose }) => {
   const { user } = useAuth();
   const [modalData, setModalData] = useState({});
   const { title, price, validity, network } = offer;
+  const paymentMethod = [
+    {
+      value: "Bkash",
+      label: "Bkash",
+    },
+    {
+      value: "Nagad",
+      label: "Nagad",
+    },
+    {
+      value: "Rocket",
+      label: "Rocket",
+    },
+  ];
 
   const handleChange = (e) => {
     const field = e.target.name;
@@ -73,7 +87,7 @@ const OfferModal = ({ offer, open, handleClose }) => {
           <Grid container spacing={2}>
             <Grid
               item
-              sx={12}
+              xs={12}
               md={6}
               sx={{ display: { xs: "none", md: "block" } }}
             >
@@ -84,13 +98,13 @@ const OfferModal = ({ offer, open, handleClose }) => {
               />
             </Grid>
             <Grid item sx={12} md={6}>
-              <Paper elevation={3} sx={{ pt: 5 }}>
+              <Paper elevation={3} sx={{ pt: 1 }}>
                 <form onSubmit={handleSubmit}>
                   <TextField
                     required
                     sx={{
                       width: { xs: "90%", md: "75%" },
-                      mb: 3,
+                      mb: 1,
                       mx: { xs: "6%", md: "12%" },
                     }}
                     label="Type a valid Number"
@@ -102,7 +116,7 @@ const OfferModal = ({ offer, open, handleClose }) => {
                   <TextField
                     sx={{
                       width: { xs: "90%", md: "75%" },
-                      mb: 3,
+                      mb: 1,
                       mx: { xs: "6%", md: "12%" },
                     }}
                     label="Operator"
@@ -115,7 +129,7 @@ const OfferModal = ({ offer, open, handleClose }) => {
                     required
                     sx={{
                       width: { xs: "90%", md: "75%" },
-                      mb: 3,
+                      mb: 1,
                       mx: { xs: "6%", md: "12%" },
                     }}
                     label="Amount in TK"
@@ -128,7 +142,7 @@ const OfferModal = ({ offer, open, handleClose }) => {
                   <TextField
                     sx={{
                       width: { xs: "90%", md: "75%" },
-                      mb: 3,
+                      mb: 1,
                       mx: { xs: "6%", md: "12%" },
                     }}
                     label="Validation"
@@ -138,11 +152,56 @@ const OfferModal = ({ offer, open, handleClose }) => {
                     type="text"
                     onBlur={handleChange}
                   />
+                  <TextField
+                    required
+                    sx={{
+                      width: { xs: "90%", md: "75%" },
+                      mb: 1,
+                      mx: { xs: "6%", md: "12%" },
+                    }}
+                    select
+                    label="Payment Method"
+                    name="paymentMethod"
+                    onChange={handleChange}
+                    helperText="Please select Payment Method"
+                  >
+                    {paymentMethod.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                  <TextField
+                    required
+                    sx={{
+                      width: { xs: "90%", md: "75%" },
+                      mb: 1,
+                      mx: { xs: "6%", md: "12%" },
+                    }}
+                    label="Enter Account Number"
+                    variant="outlined"
+                    name="paymentAccount"
+                    type="text"
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    required
+                    sx={{
+                      width: { xs: "90%", md: "75%" },
+                      mb: 1,
+                      mx: { xs: "6%", md: "12%" },
+                    }}
+                    label="PIN"
+                    variant="outlined"
+                    name="pin"
+                    type="password"
+                    onChange={handleChange}
+                  />
                   <Button
                     disabled={!modalData.phone && !modalData.price}
                     sx={{
                       width: { xs: "90%", md: "75%" },
-                      mb: 3,
+                      mb: 1,
                       mx: { xs: "6%", md: "12%" },
                     }}
                     variant="contained"
