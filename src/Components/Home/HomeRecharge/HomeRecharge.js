@@ -104,11 +104,11 @@ const HomeRecharge = () => {
         </Typography>
 
         <Grid container spacing={2}>
-          <Grid item xm={12} sm={12} md={6}>
+          <Grid item xs={12} sm={12} md={6}>
             <img style={{ width: "75%" }} src={HomepageRecharge} alt="" />
           </Grid>
-          <Grid item xm={12} sm={12} md={6}>
-            <Paper sx={{ pt: 2, mt: { sx: "0px", md: "-40px" } }}>
+          <Grid item xs={12} sm={12} md={6}>
+            <Paper sx={{ pt: 2, mt: { xs: "0px", md: "-40px" } }}>
               <form onSubmit={handleSubmit}>
                 <TextField
                   required
