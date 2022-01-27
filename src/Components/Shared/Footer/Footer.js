@@ -41,7 +41,7 @@ const Footer = () => {
         <Grid item xs={12} md={6} lg={6}>
           <Box>
             <a
-              href="https://github.com/sohan724code"
+              href="https://github.com/AfsanaAkter1"
               className="footer-link"
               target="_blank"
             >
@@ -49,7 +49,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://github.com/sohan724code"
+              href="https://github.com/AfsanaAkter1"
               className="footer-link"
               target="_blank"
             >
@@ -57,7 +57,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://github.com/sohan724code"
+              href="https://github.com/AfsanaAkter1"
               className="footer-link"
               target="_blank"
             >
